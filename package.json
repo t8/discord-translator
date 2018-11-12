@@ -1,0 +1,25 @@
+{
+  "name": "discord-translator",
+  "version": "1.0.0",
+  "description": "Translates text put into discord. You're welcome Lacroy",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbaumer22/discord-translator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tbaumer22/discord-translator/issues"
+  },
+  "homepage": "https://github.com/tbaumer22/discord-translator#readme",
+  "dependencies": {
+    "deepl-translator": "^1.2.1",
+    "discord.js": "^11.4.2",
+    "dotenv": "^6.1.0"
+  }
+}
