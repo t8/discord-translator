@@ -15,30 +15,19 @@ client.on("message", async message => {
         return;
     }
     //                          Spanish channel ID                             English channel ID
-    if (message.channel.id === "478677568724271108" || message.channel.id === "446075987680165890") {
-        let translatedText = "";
-        let detectedLanguage = "";
+    if (message.channel.id === "511712196166680586" || message.channel.id === "511712220946759680") {
         translate(message.content, 'ES')
-            .then(res => translatedText = res.translation)
+            .then(res => {
+                if (message.channel.id === "511712196166680586") {
+                    message.reply(res.translation);
+                    client.channels.get("511712220946759680").send("From " + message.author.username + ": " + res.translation);
+                } else if (message.channel.id === "511712220946759680") {
+                    message.reply(res.translation);
+                    client.channels.get("511712196166680586").send("From " + message.author.username + ": " + res.translation);
+                }
+            })
             .catch(console.error);
-        detectLanguage(message.content)
-            .then(res => detectedLanguage = res.languageName)
-            .catch(console.error);
-        postToChannel(detectedLanguage, translatedText);
     }
 });
-
-function postToChannel(detectedLang, tMsg) {
-    let toType = "undef";
-    if (detectedLang === "ES") {
-        // Language is english, so translate and post to spanish
-        toType = "en";
-        client.channels.get("478677568724271108").send(tMsg);
-    } else if (detectedLang === "EN") {
-        // Language is spanish, so translate and post to english
-        toType = "es";
-        client.channels.get("478677568724271108").send(tMsg);
-    }
-}
 
 client.login(process.env.DISCORD_TOKEN);
