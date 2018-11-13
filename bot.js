@@ -15,15 +15,15 @@ client.on("message", async message => {
         return;
     }
     //                          Spanish channel ID                             English channel ID
-    if (message.channel.id === "511712196166680586" || message.channel.id === "511712220946759680") {
+    if (message.channel.id === "475725370587348992" || message.channel.id === "446075987680165890") {
         translate(message.content, 'ES')
             .then(res => {
-                if (message.channel.id === "511712196166680586") {
+                if (message.channel.id === "475725370587348992") {
                     message.reply(res.translation);
-                    client.channels.get("511712220946759680").send("From " + message.author.username + ": " + res.translation);
-                } else if (message.channel.id === "511712220946759680") {
+                    client.channels.get("446075987680165890").send("From " + message.author.username + ": " + res.translation);
+                } else if (message.channel.id === "446075987680165890") {
                     message.reply(res.translation);
-                    client.channels.get("511712196166680586").send("From " + message.author.username + ": " + res.translation);
+                    client.channels.get("475725370587348992").send("From " + message.author.username + ": " + res.translation);
                 }
             })
             .catch(console.error);
